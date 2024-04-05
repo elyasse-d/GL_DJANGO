@@ -24,4 +24,9 @@ projct/
     ~/biblioapp #app
     .manage.py
 ```
+<<<<<<< Updated upstream
 Mohamed
+=======
+
+git clone link <code>
+>>>>>>> Stashed changes
