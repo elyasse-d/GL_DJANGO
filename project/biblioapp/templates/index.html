@@ -1,8 +1,9 @@
+{% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>{% block title %}{% endblock %}</title>
-  {% load bootstrap5 %}
   {% bootstrap_css %}
   {% bootstrap_javascript %}
 </head>
@@ -17,6 +18,7 @@
       <a class="nav-link link-light" href="/members">MEMBERS</a>
     </li>
   </ul>
+  <img src="{% static 'biblioapp/g.jpg' %}" alt="My Image">
 
   {% block content %}
   {% endblock %}
