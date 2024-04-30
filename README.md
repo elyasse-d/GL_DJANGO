@@ -6,6 +6,8 @@ Second , Use this command
 ```
 pip install -r requirement.txt
 ```
+Install NPM
+
 Setup The Envirement 
 ```
 python manage.py migrate
@@ -13,6 +15,10 @@ python manage.py migrate
 
 run the Server 
 ```
+python manage.py runserver
+```
+```
+python manage.py tailwind start 
 python manage.py runserver
 ```
 >To add image to your html , use {% load static %} and {% static 'biblio/ficher.png' %} 
