@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #212121; /* Dark mode background */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif; /* Add a modern font */
+    }
+
+    .login-form {
+      background-color: #343a40; /* Darker background for the form */
+      padding: 20px; /* Reduced padding for a more compact form */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+      width: 300px; /* Maintain window width */
+    }
+
+    .login-form h2 {
+      text-align: center;
+      color: #fff; /* White title color */
+      margin-bottom: 20px;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      background-color: #343a40; /* Dark input background */
+      color: #fff; /* White text */
+      border: none; /* Remove border */
+      border-bottom: 1px solid #ccc; /* Light bottom border */
+      border-radius: 5px;
+      padding: 10px 20px; /* Increase input padding */
+      width: 100%; /* Make input full-width */
+      font-size: 16px; /* Increase font size for better readability */
+    }
+
+    .login-form input[type="text"]:focus,
+    .login-form input[type="password"]:focus {
+      border-bottom-color: #c74c0a; /* Orange border on focus */
+      outline: none; /* Remove default browser outline */
+    }
+
+    .login-form button[type="submit"] {
+      background-color: #c74c0a;
+      color: #fff; /* White text */
+      border: none;
+      border-radius: 5px;
+      padding: 15px 20px; /* Increase button padding */
+      width: 100%;
+      font-size: 18px; /* Increase button font size */
+      cursor: pointer; /* Indicate clickable button */
+    }
+
+    .login-form button[type="submit"]:hover {
+      background-color: #c74c0a; /* Darker orange on hover */
+    }
+
+    .login-form a {
+      color: #ccc; /* Light text color */
+      text-decoration: none; /* Remove underline */
+      margin-top: 10px;
+      display: block; /* Display as block for better spacing */
+    }
+
+    .login-form a:hover {
+      color: rgba(223, 75, 38, 0.998); /* Orange on hover */
+    }
+  </style>
+</head>
+<body>
+  <div class="login-form">
+    <h2>Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Login</button>
+      <!-- Lien vers la page de réinitialisation de mot de passe -->
+      <a href="{% url 'change_password' %}">Forgot Password?</a>
+      <!-- Lien vers la page d'inscription -->
+      <a href="{% url 'signup' %}">Don't have an account? Sign up</a>
+    </form>
+  </div>
+</body>
+</html>

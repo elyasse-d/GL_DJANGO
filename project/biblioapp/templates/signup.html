@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #212121; /* Dark mode background */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif; /* Add a modern font */
+    }
+
+    .signup-form {
+      background-color: #343a40; /* Darker background for the form */
+      padding: 20px; /* Reduced padding for a more compact form */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+      width: 300px; /* Maintain window width */
+    }
+
+    .signup-form h2 {
+      text-align: center;
+      color: #fff; /* White title color */
+      margin-bottom: 20px;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="email"],
+    .signup-form input[type="password"],
+    .signup-form input[type="tel"] {
+      background-color: #343a40; /* Dark input background */
+      color: #fff; /* White text */
+      border: none; /* Remove border */
+      border-bottom: 1px solid #ccc; /* Light bottom border */
+      border-radius: 5px;
+      padding: 10px 20px; /* Increase input padding */
+      width: 100%; /* Make input full-width */
+      font-size: 16px; /* Increase font size for better readability */
+    }
+
+    .signup-form input[type="text"]:focus,
+    .signup-form input[type="email"]:focus,
+    .signup-form input[type="password"]:focus,
+    .signup-form input[type="tel"]:focus {
+      border-bottom-color: #c74c0a; /* Orange border on focus */
+      outline: none; /* Remove default browser outline */
+    }
+
+    .signup-form button[type="submit"] {
+      background-color: #c74c0a;
+      color: #fff; /* White text */
+      border: none;
+      border-radius: 5px;
+      padding: 15px 20px; /* Increase button padding */
+      width: 100%;
+      font-size: 18px; /* Increase button font size */
+      cursor: pointer; /* Indicate clickable button */
+    }
+
+    .signup-form button[type="submit"]:hover {
+      background-color: #c74c0a; /* Darker orange on hover */
+    }
+
+    .signup-form a {
+      color: #ccc; /* Light text color */
+      text-decoration: none; /* Remove underline */
+      margin-top: 10px;
+      display: block; /* Display as block for better spacing */
+    }
+
+    .signup-form a:hover {
+      color: rgba(201, 61, 26, 0.998); /* Orange on hover */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-form">
+    <h2>Sign Up</h2>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password1" placeholder="Password" required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" name="phone_number" placeholder="Phone Number" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <a href="{% url 'login' %}">Already have an account? Login!</a>
+    </form>
+  </div>
+</body>
+</html>
