@@ -1,0 +1,29 @@
+<!-- ce fichier juste pour tester la fonction Get de library (LibraryView.get)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<body>
+    <h1>Library</h1>
+        {% for book in books %}
+
+            <div class="card border-2 " style="width: 18rem;">
+                <img src="{{book.photo}}" class="card-img-top" alt="{{book.date_edition}}">
+                <div class="card-body">
+                  <h5 class="card-title">Title : {{ book.title }}</h5>
+                  <p class="card-text">Genre :  {{ book.genre }}</p>
+                  <p>Language :  {{ book.language}}</p>
+                  <p>Quantity : {{ book.quantity}}</p>
+                  <p>Summary : {{ book.summary}}</p>
+                </div>
+              </div>
+
+
+        {% endfor %}
+
+</body>
+</html>

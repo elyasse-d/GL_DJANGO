@@ -1,0 +1,217 @@
+
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Home - Libra{% endblock %}</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  
+  <!-- the link of the files css -->
+  <link href="{% static '/admin/css/bootstrap.css' %}" rel="stylesheet" >
+
+<style>
+/* styleAccueil.css starts here */
+
+
+#main img {
+   height: 300px;
+   width: 300px;
+  border-radius: 15px;
+  border-bottom: 2px solid #C72E25;
+  border-left: 2px solid #C72E25;
+  margin-bottom: 10px; /* Espacement entre les images */
+}
+
+/* end of styleAccueil.css */
+/* Custom CSS for image scrolling */
+.img-scroll {
+  animation: scroll-up 10s infinite ; /* Défilement de haut en bas */
+}
+
+.img-scroll-reverse {
+  animation: scroll-down 10s infinite ; /* Défilement de bas en haut */
+}
+
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(20px); }
+}
+
+/* Masquer la barre de défilement pour les navigateurs WebKit */
+::-webkit-scrollbar {
+    display: none;
+  }
+
+</style>
+
+
+</head>
+<body style="background-color: #1E1E1E;">
+  <!-- header start here -->
+  {% include './header.html' %}
+  <!-- header end here -->   
+   <!-- Main Section Start -->
+   
+
+
+
+
+
+<!-- Main Section -->
+<section id="main" class="bg-dark text-light align-content-center py-3 rounded-5 w-100" style="margin-top: 8%; overflow: hidden; height: 500px;">
+   <div class="container">
+     <div class="row align-items-center justify-content-between">
+       <div class="col-lg-6">
+         <h2 class="mt-1 mb-5" style="font-family: Impact,  sans-serif;">KNOWLEDGE AT YOUR HANDS</h2>
+         <p class="mb-5"><samp>Welcome to your favorite library, enjoy your life</samp></p>
+         <button class="btn btn-danger mb-5 text-white" style="width: 150px; height: 50px;">Check libra</button>
+       </div>
+       <div class="col-lg-6">
+         <div class="row justify-content-start" style="overflow-y: auto; max-height: 400px;"> <!-- Ajout de styles CSS -->
+           <div class="col-lg-6">
+             <img src="{% static 'admin/img/img1.png' %}" class="img-fluid img-scroll-reverse mb-3" alt="img1">
+             <img src="{% static 'admin/img/img2.png' %}" class="img-fluid img-scroll-reverse mb-3" alt="img2">
+             <img src="{% static 'admin/img/img3.png' %}" class="img-fluid img-scroll-reverse mb-3" alt="img3">
+           </div>
+           <div class="col-lg-6">
+             <img src="{% static '/admin/img/img4.png' %}" class="img-fluid img-scroll mb-3" alt="img4">
+             <img src="{% static '/admin/img/img5.png' %}" class="img-fluid img-scroll mb-3" alt="img5">
+             <img src="{% static '/admin/img/img6.png' %}" class="img-fluid img-scroll mb-3" alt="img6">
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- Main Section End-->
+
+
+
+
+
+<!-- Imformation Section -->
+   <section id="information" class="bg-dark text-light align-content-center rounded-5 w-100" style="margin-top: 2%; height: 500px;">
+   <div class="container">
+     <div class="row justify-content-center align-items-center">
+       <div class="col-lg-6 text-end">
+         <img src="{% static '/admin/img/img7.png' %}" class=" me-5 rounded-5" width="300px" height=" 450px" alt="photo" style="margin-left: 30px;">
+       </div>
+       <div class="col-lg-6 text-start">
+         <h3 class="mb-5 fw-bold">Get your book now !</h3>
+         <p class="mb-4 fw-lighter">Get The new and he best seller books,<br/>Be the smartest.</p>
+         <table class="table table-borderless table-dark mb-5">
+           <tr class="">
+             <td class="text-danger">+100</td>
+             <td class="text-danger">+100</td>
+             <td class="text-danger">+90</td>
+           </tr>
+           <tr class="fw-lighter">
+             <td>Rented Books</td>
+             <td>New Books</td>
+             <td>Satisfied Clients</td>
+           </tr>
+         </table>
+         <a href="#" class="me-2"><button type="button" class="btn btn-danger text-white" style="width: 150px; height: 50px;">Check Libra</button></a>
+         <a href="#" class="me-2"><button type="button" class="btn btn-outline-dark text-white border-white" style="width: 150px; height: 50px;">Create Account</button></a>
+       </div>
+       
+     </div>
+   </div>
+   </section>
+<!-- Information Section End -->
+ 
+
+
+
+
+ <!-- Team Section -->
+   <section id="team" class="bg-dark text-light align-content-center rounded-5 w-100" style="margin-top: 2%; height: 680px;">
+      <div class="container">
+         <div class="row">
+            <div class="col">
+               <div class="text-center mb-3">
+                  <p><B><big>the team behind it : </big></B></p>
+               </div>
+               <section class="overflow-auto" style="margin-top: 5%; height: 500px; overflow-x: hidden;">
+                  <div class="d-flex flex-nowrap">
+                     <div class="me-3">
+                        <img src="{% static 'admin/img/img1.png' %}" alt="Image 1" style="width: 300px; height: 400px;">
+                        <p class="text-center">dev 1</p>
+                     </div>
+                     <div class="me-3">
+                        <img src="{% static 'admin/img/img1.png' %}" alt="Image 2" style="width: 300px; height: 400px;">
+                        <p class="text-center">dev 2</p>
+                     </div>
+                     <div class="me-3">
+                        <img src="{% static 'admin/img/img1.png' %}" alt="Image 1" style="width: 300px; height: 400px;">
+                        <p class="text-center">dev 3</p>
+                     </div>
+                     <div class="me-3">
+                        <img src="{% static 'admin/img/img1.png' %}" alt="Image 2" style="width: 300px; height: 400px;">
+                        <p class="text-center">dev 4</p>
+                     </div>
+                     <div class="me-3">
+                        <img src="{% static 'admin/img/img1.png' %}" alt="Image 1" style="width: 300px; height: 400px;">
+                        <p class="text-center">dev 5</p>
+                     </div>
+                  </div>
+               </section>
+            </div>
+         </div>
+      </div>
+   </section>
+ <!-- Team Section End -->
+
+
+
+
+
+    <!-- Form Section -->
+    <section id="contact" class="bg-dark mx-auto text-light align-content-center text-center rounded-5 w-100" style="margin-top: 2%;">
+      <div class="container w-75 p-3">
+        <form>
+          <fieldset>
+            <legend class="text-center mb-4">Get in touch</legend>
+         <div class="row ">
+            <div class="col-md-6 mb-3">
+              <label for="inputName" class="form-label">Your Name:</label>
+              <input type="text" class="form-control bg-dark text-white border-bottom border-0" id="inputName" placeholder="Your Name">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="inputEmail" class="form-label">Email Address:</label>
+              <input type="email" class="form-control bg-dark text-white border-bottom border-0" id="inputEmail" placeholder="Email Address">
+            </div>
+         </div>
+            <div class="mb-3">
+              <label for="inputMessage" class="form-label">Your Message:</label>
+              <textarea class="form-control bg-dark text-white border-bottom border-0" id="inputMessage " rows="3" placeholder="Your message..."></textarea>
+            </div>
+
+            <a href="#"><button type="submit" class="btn btn-danger text-white" style="width: 150px; height: 50px;">Submit</button></a>
+         </fieldset>
+        </form>
+      </div>
+    </section>
+    <!-- Form Section End -->
+
+
+
+
+
+  <!-- La footer --======================================================================-->
+     {% include './footer.html' %}
+  <!-- footer end here -->
+
+
+  {% block content %}
+  {% endblock %}
+  <script src="{% static 'admin/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

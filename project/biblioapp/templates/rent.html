@@ -1,0 +1,116 @@
+<!-- ce fichier contient autre footer et header realiser avec bootstrap -->
+<!-- index.html starts here-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Rent - Libra{% endblock %}</title>
+        
+        <!-- the link of the files css --> 
+         <link rel="stylesheet" type="text/css" href="{% static '/admin/css/bootstrap.css' %}">
+
+    </head>
+    <body style="background-color: #1E1E1E;">
+        <!-- header start here -->
+        {% include './header.html' %}
+        <!-- header end here -->
+
+
+
+
+
+
+        <!-- main starts here -->
+
+        <section id="rent" class="bg-dark text-light align-content-center rounded-5"style="height: 600px; margin-top: 10%;">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Colonne pour l'image -->
+                    <div class="col-4">
+                        <img src="{{book.images}}" alt="FirstPageBook" class="img-fluid w-75 ms-5 mb-3 mt-3 rounded-5" style="height: 450px; border: 2px solid #C72E25;">
+                    </div>
+                    <!-- Colonne pour le tableau -->
+                    <div class="col-8 d-flex align-items-center">
+                        <table class="table table-dark  ms-3 me-lg-5 mr-5 mx-5 text-white table-borderless" style="width: 900px;">
+                            <!-- Contenu de la table -->
+                            <tbody>
+                                <tr>
+                                    <td ><label for="Title">Title : </label></td>
+                                    <td class=""><input type="text" class="form-control  border-0 text-white" placeholder="Exemple title book" style="background-color: #0000009f;"></td>
+                                    <td><label for="user">User : </label></td>
+                                    <td><input type="text" class="form-control  border-0 text-white" placeholder="Name" style="background-color: #0000009f;"></td>
+                                </tr>
+                                    <tr>
+                                    <td><label for="author">Author : </label></td>
+                                    <td><input type="text" class="form-control  border-0 text-white" placeholder="Exemple" style="background-color: #0000009f;"></td>
+                                    <td><label for="date">Date : </label></td>
+                                    <td><input type="date" class="form-control border-0 text-white" style="background-color: #0000009f;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="DateRealisation">Release Date : </label></td>
+                                    <td><input type="text" class="form-control  border-0 text-white" placeholder="Exemple" style="background-color: #0000009f;"></td>
+                                    <td><label for="ReturnDate">Return Date : </label></td>
+                                    <td><input type="text" class="form-control  border-0 text-white" style="background-color: #0000009f;"></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Language">Language : </label></td>
+                                    <td><input type="text" class="form-control  border-0 text-white" placeholder="Exemple" style="background-color: #0000009f;"></td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="Genere">Genere : </label></td>
+                                    <td><input type="text" class="form-control border-0 text-white" placeholder="Exemple" style="background-color: #0000009f;"></td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-danger btn-bottom-right ms-auto mx-5 mt-0 " style="width: 150px;">Rent</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="continue" class="bg-dark mx-auto text-light align-content-center text-center mt-5 rounded-5 w-50"style="height: 300px;">
+            <!-- ce message <h3> doit afficher lorsque la succes de la rent (emprunter)-->
+                
+            {% if success %}
+                <h3 class="pb-3">Operation successed !</h3>
+                <p class="pb-3">You can grab your book!</p>
+            {% endif %}
+            {% if unavailable %}
+                <h3 class="pb-3">Sorry, the book is unavailable.</h3>
+                <p class="pb-3">Please choose another book.</p>
+            {% endif %}
+            <button class="btn btn-danger mx-auto pb-2 pt-2  align-content-center " style="width: 150px;">continue</button>
+
+        </section>
+
+
+
+        <!-- main end here -->
+
+
+
+
+
+
+        <!-- La footer --======================================================================-->
+        {% include './footer.html' %}
+        <!-- footer end here -->
+
+
+
+        <!-- the link of the files js -->
+        <script src="{% static '/admin/js/bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>
+
+<!-- end of index.html -->
+
+
