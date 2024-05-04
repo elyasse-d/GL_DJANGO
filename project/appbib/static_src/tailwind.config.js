@@ -45,21 +45,22 @@ module.exports = {
         extend: {
             fontFamily: {
               helvetica: ['Helvetica', 'Arial', 'sans-serif', 'regular'],
-              'helvetica-65-medium': ['Helvetica Neue', 'Arial', 'sans-serif', '65-medium'],
-              'helvetica-ultra-light': ['Helvetica Neue', 'Arial', 'sans-serif', 'ultra-light'],
-              'helvetica-light-condensed': ['Helvetica Neue', 'Arial', 'sans-serif', 'light condensed'],
+              'helvetica-black': ['HelveticaNeue-Heavy'],
+              'helvetica-ultra-light': ['Helvetica Neue','Light'],
+              'helvetica-light-condensed': ['Helvetica Neue',  'light condensed'],
               preosper: ['Preospe'],
               nexus: ['Nexusbold','regular'],
             },
             fontSize: {
                 'btn': '1.5625rem',
                 'reg': '1.5rem',
-                'title': '26rem',
+                'title': '32rem',
                 'light': '1.75rem',
                 'logo': '3rem'
             },
             boxShadow: {
-                'nav':'0 8px 0 rgba(158, 152, 152, 0.11)'
+                'nav':'0 8px 0 rgba(158, 152, 152, 0.11)',
+                
             },
             colors: {
                 ired:'#C72E25',
@@ -71,6 +72,9 @@ module.exports = {
             },
             letterSpacing: {
                 'title':'0.08em',
+            },
+            spacing:{
+                'xf':'302px',
             },
           },
     },
