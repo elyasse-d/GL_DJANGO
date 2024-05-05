@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'biblioapp',
+
+    'tailwind',
+    'appbib',
+    'django_browser_reload',
 ]
 
 MIDDLEWARE = [
@@ -123,11 +127,23 @@ STATICFILES_FINDERS = [
 ]
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'biblioapp/static')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS =[
+    os.path.join(BASE_DIR, 'appbib/static'),
+    os.path.join(BASE_DIR, 'biblioapp/static'),
+    ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+TAILWIND_APP_NAME = 'appbib'
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+
+

@@ -1,0 +1,47 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %}book{% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto flex flex-col gap-10">
+
+    <div class="container mx-auto bg-iblack  flex">
+        <div class="w-full h-2/6 bg-iiblack flex rounded-2xl border-iiblack">
+            <div class="w-1/4 h-full p-2 flex items-center justify-center mb-10 ">
+                <img src="{% static 'appbib/moby.jpg' %}" alt="" class="rounded-xl border-2 border-ired h-img">
+        </div>
+        <div class="w-3/4 h-full p-2 flex flex-col gap-4">
+            <div class="flex flex-row">
+                <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            </div>
+            <div class="flex flex-row">
+                <h1 class="text-iwhite text-reg font-helvetica-black">Author:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            </div>
+            <div class="flex flex-row">
+                <h1 class="text-iwhite text-reg font-helvetica-black">Realese Date:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            </div>
+            <div class="flex flex-row">
+                <h1 class="text-iwhite text-reg font-helvetica-black">Language:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            </div>
+            <div class="flex flex-row">
+                <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+<div class="w-full h-fit bg-iiblack">
+    <h1 class="text-reg font-helvetica-black p-5">Content</h1>
+    <p class="text-reg font-helvetica-ultra-light p-10">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit
+    </p>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %} Singup- Bib{% endblock %}
+
+{% block main-content %}
+
+<div class="container mx-auto h-screen w-full justify-center items-center flex flex-col "
+    style="background-image: url('/static/appbib/books.png'); background-repeat: repeat; background-size: auto;">
+    <form action="login" method="POST" class="flex-1  bg-iblack p-10 max-w-3xl w-full drop-shadow-sm flex flex-col ">
+        {{crf_token}}
+        <h2 class="text-iwhite text-center font-helvetica-black text-logo">Singup</h2>
+        <section class="flex-1 flex flex-col gap-3 justify-center">
+            <div class="flex flex-col gap-10"> 
+                <input type="text" placeholder="email"
+                class=" text-iwhite w-full px-4 py-2 bg-iblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                <input type="text" placeholder="password"
+                class=" text-iwhite w-full px-4 py-2 bg-iblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                <input type="text" placeholder="repeat password"
+                class=" text-iwhite w-full px-4 py-2 bg-iblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                <input type="text" placeholder="Phone Number"
+                class=" text-iwhite w-full px-4 py-2 bg-iblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                
+            </div>
+            <p class="mt-8 text-xs font-light text-center text-gray-400"> You have an account? <a href="{% url 'login' %}" class="font-medium text-gray-700 dark:text-gray-200 hover:underline">Login</a></p>
+        </section>
+        <button class=" w-2/6 text-sm py-2 leading-none border rounded text-iwhite bg-ired self-center">
+            <span class="text-iwhite text-reg font-helvetica ">Login</span>
+        </button>
+    </form>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,88 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto dvh">
+    <div class="bg-white dark:bg-iblack flex relative z-20 items-center overflow-hidden">
+        <div class="container mx-auto px-6 flex relative py-16">
+            <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
+                <span class="w-20 h-2 bg-iblack dark:bg-white mb-12">
+                </span>
+                <h1 class="font-nexus uppercase text-9xl tracking-title sm:text-8xl flex flex-col leading-none dark:text-iwhite text-iwhite">
+                    <span>KNWOLEDGE AT</span> 
+                    <span>YOUR HANDS</span>
+                </h1>
+                <p class="text-sm sm:text-base text-gray-700 dark:text-white">
+                    Welecome to your favorite library,
+                    enjoy your life	
+                </p>
+                <div class="flex mt-8">
+                    <a href="#" class="uppercase py-2 px-4 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
+                        Check our books
+                    </a>
+                </div>
+            </div>
+            <div class="hidden sm:block sm:w-1/3 lg:w-3/5 relative">
+                <img src="{% static 'appbib/books.png'%}" class="max-w-12xl md:max-w-sm m-auto scale-[2.01] "/>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container mx-auto ">
+            <div class="absolute inset-x-0  h-1 bg-[#9E9898]"></div>
+            <br>
+            <div class="place-content-around grid  p-[20px] m-10">
+                <div class="flex flex-row m-auto">
+                    <img class="rounded-md  h-full w-xf" src="{% static 'appbib/girlb.jpg' %}" alt="">
+                    <div class="flex flex-col pl-10 ml-10">
+                        <h1 class="text-iwhite text-reg font-helvetica-black">Get your book now</h1>
+                        <p class="text-iiwhite font-helvetica-ultra-light">
+                            Get The new and best seller books, Be the smartest .
+                        </p>
+                        <div class="flex flex-row text-ired font-helvetica-black text-7xl mt-2 pt-2 ">
+                            <div class="flex-col justify-center">
+                                <h1 class="px-5 mx-1">+100</h1>
+                                <p class="text-iiwhite font-helvetica-ultra-light text-reg"> Rented book</p>
+                            </div>    
+                            <div class="flex-col">
+                                <h1 class="px-5 mx-1">+100</h1>
+                                <p class="text-iiwhite font-helvetica-ultra-light text-reg"> Rented book</p>
+                            </div> 
+                            <div class="flex-col">
+                                <h1 class="px-5 mx-1">+100</h1>
+                                <p class="text-iiwhite font-helvetica-ultra-light text-reg"> Rented book</p>
+                            </div> 
+                        </div>
+                        
+                        <div class="flex flex-row font-helvetica ">
+
+                            <div class="flex mt-8">
+                                <a href="#" class="uppercase py-2 px-4 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
+                                    Check LIBRA
+                                </a>
+                            </div>
+                            <div class="flex mt-8">
+                                <a href="#" class="uppercase py-2 px-4 rounded-lg border-ired border-2 border-2 text-iwhite text-md mr-4 hover:bg-ired">
+                                    Create Account
+                                </a>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="absolute inset-x-0  h-1 bg-[#9E9898]"></div>
+
+    </div>
+    <!--Carousel-->
+
+<div>
+    
+
+
+</div>
+    
+{% endblock %}

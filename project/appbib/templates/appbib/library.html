@@ -1,0 +1,119 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %} Library- Bib{% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto h-full w-screen flex flex-col ">
+    <div class="flex flex-row  bg-iiblack justify-end gap-4">
+            <input type="text" placeholder="Search"
+                class=" min-w-80 text-iwhite  px-4 py-2 bg-iiblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                <button class=" w-60 text-sm py-2 leading-none border rounded text-iwhite bg-none self-center">
+                    <span class="text-iwhite text-reg font-helvetica ">search</span>
+                </button>
+    </div>
+    
+    <div class="flex">
+        
+        <div class="w-1/4 h-screen p-2">
+          <div class="mb-4 border rounded-xl border-ishadow p-5">
+                <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Genere:</h1>
+            <div class="border border-ishadow rounded-lg flex py-2 px-1  bg-iiblack" >
+                <span class="text-reg font-helvetica-ultra-light flex-1">drama</span>
+                <input type="checkbox" id="genere" class="size-7 flex-1" />
+            </div>
+        </div>
+
+        <div class="mb-4 border rounded-xl border-ishadow p-5">
+            <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Language:</h1>
+            <ul class="space-y-1 border rounded-xl border-ishadow p-4">
+                <li>
+                  <label for="language" class="inline-flex items-center gap-2">
+                    <input type="checkbox" id="kangauge" class="size-7 rounded border-ishadow" />
+        
+                    <span class="text-reg font-helvetica-ultra-light"> Arabic </span>
+                  </label>
+                </li>
+        </div>
+        
+    </div>
+       
+        <div class="w-3/4 p-4 grid grid-cols-4 gap-4">
+            <!-- Python Script to generate the number of cards -->
+          <div class=" bg-iiblack rounded-xl p-5 mb-4 border-2 h-hs w-w border-iiblack hover:border-ired relative  flex flex-col ">
+                <img src="{% static 'appbib/moby.jpg' %}" alt="" class="object-cover h-img rounded-lg border-none  ">
+                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
+                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
+                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
+                <div class="justify-end flex gap-2 place-items-end ">
+                    <!-- Python loop for generes -->
+                    <div class="border border-1 rounded-lg border-ishadow w-10 h-10 flex items-center justify-center "> <span class="place-self-center ">H</span></div>
+                </div>
+            </div>
+            
+        
+        </div>
+        
+    </div>
+    <div>
+
+        <details
+        class="overflow-hidden rounded border border-gray-300 [&_summary::-webkit-details-marker]:hidden"
+        >
+          <summary
+            class="flex cursor-pointer items-center justify-between gap-2 bg-white p-4 text-gray-900 transition"
+          >
+            <span class="text-sm font-medium"> Availability </span>
+      
+            <span class="transition group-open:-rotate-180">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="h-4 w-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </span>
+          </summary>
+      
+          <div class="border-t border-gray-200 bg-white">
+            <header class="flex items-center justify-between p-4">
+              <span class="text-sm text-gray-700"> 0 Selected </span>
+      
+              <button type="button" class="text-sm text-gray-900 underline underline-offset-4">
+                Reset
+              </button>
+            </header>
+      
+            <ul class="space-y-1 border-t border-gray-200 p-4">
+              <li>
+                <label for="FilterInStock" class="inline-flex items-center gap-2">
+                  <input type="checkbox" id="FilterInStock" class="size-5 rounded border-gray-300" />
+      
+                  <span class="text-sm font-medium text-gray-700"> In Stock (5+) </span>
+                </label>
+              </li>
+      
+              <li>
+                <label for="FilterPreOrder" class="inline-flex items-center gap-2">
+                  <input type="checkbox" id="FilterPreOrder" class="size-5 rounded border-gray-300" />
+      
+                  <span class="text-sm font-medium text-gray-700"> Pre Order (3+) </span>
+                </label>
+              </li>
+      
+              <li>
+                <label for="FilterOutOfStock" class="inline-flex items-center gap-2">
+                  <input type="checkbox" id="FilterOutOfStock" class="size-5 rounded border-gray-300" />
+      
+                  <span class="text-sm font-medium text-gray-700"> Out of Stock (10+) </span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </details>
+    </div>
+
+{% endblock %}

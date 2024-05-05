@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Preospe' ;
+    src: url(./Preospe.otf) format('otf');
+}
+@font-face {
+    font-family: 'Nexusbolds';
+    src: url(./Nexusbold\ Regular.otf) format('otf');
+}
+@font-face {
+    font-family: 'HelveticaNeue-Heavy';
+    font-weight: 650;
+    src: url(./HelveticaNeue-Heavy.otf) format('otf');
+    
+}

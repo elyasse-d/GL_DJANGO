@@ -1,0 +1,67 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %}Profil{% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto flex flex-col gap-5">
+    <div class="w-full h-2/5 bg-iiblack flex items-center justify-center rounded-2xl ">
+
+        <img src="{% static 'appbib/girlb.jpg' %}" alt="" class="rounded-full border-ired border-2 object-cover h-60 w-60 mb-10">
+    </div>
+    <div class="flex w-full">
+       <div class="w-1/4 h-fit bg-iiblack flex flex-col rounded-2xl p-10 gap-4">
+        <div class="flex flex-row">
+            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+        </div>
+        <div class="flex flex-row">
+            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+        </div>
+        <div class="flex flex-row">
+            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+        </div>
+        <div class="flex flex-row">
+            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+        </div>
+
+       </div>
+       <div class="w-3/4 h-fit bg-iiblack gap-4 rounded-2xl ml-5 p-5">
+        <div class=" flex justify-center items-center h-full">
+
+            <div class="max-w-7xl mx-auto py-8 w-full h-full">
+                <div class="overflow-x-auto ">
+                    <table class="w-full  shadow-md rounded-lg divide-y divide-ishadow ">
+                        <thead class="">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Book</th>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Title</th>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Date</th>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Return date</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap"><img src="{{ image.url }}" alt="MRI Image" class="w-5 h-5 object-cover rounded "style="width:6rem;height:6rem;"></td>
+                                    <td class="px-6 py-4 whitespace-nowrap"> book.title </td>
+                                    <td class="px-6 py-4 whitespace-nowrap"> book.date </td>
+                                    <td class="px-6 py-4 whitespace-nowrap"> scan.return </td>
+                                </tr>
+                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </div>
+       </div>
+
+    </div>
+
+
+
+</div>
+{% endblock %}
