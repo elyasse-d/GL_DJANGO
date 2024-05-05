@@ -10,3 +10,9 @@ def singup(request):
     return render(request, 'appbib/singup.html')
 def library(request):
     return render(request, 'appbib/library.html')
+def book(request):
+    return render(request, 'appbib/book.html')
+def profil(request):
+    return render(request, 'appbib/profil.html')  
+def rent(request):
+    return render(request, 'appbib/rent.html')            

@@ -69,12 +69,16 @@ module.exports = {
                 iiwhite:'#ECECEC',
                 iwhite:'#FEFFFE',
                 shadow:'#9E9898',
+                ishadow:'#585757',
             },
             letterSpacing: {
                 'title':'0.08em',
             },
             spacing:{
                 'xf':'302px',
+                'w':'311px',
+                'hs':'499px',
+                'img':'331px',
             },
             backgroundImage:{
                 'login':"url('static/appbib/books.png')",

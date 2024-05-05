@@ -11,6 +11,7 @@
 
 	<body class="bg-iblack text-iwhite font-serif leading-normal tracking-normal">
 		<header>
+			
 			<nav class="flex items-center justify-between flex-wrap bg-iiblack p-1 px-4 shadow-nav">
 				<div class="flex items-center flex-no-shrink mr-6">
 				  <span class="font-preosper text-logo tracking-tight text-ired">libra</span>
@@ -32,11 +33,19 @@
 						Accounts
 					</a>
 				  </div>
+				  {% if user.is_authenticated %}
+				  <div class="hover:text-ired">
+					<a href="{% url 'login'%}" class="inline-block text-sm px-12 py-2 leading-none border rounded text-iwhite bg-ired border-ired mt-4 lg:mt-0 ">
+						<span class="text-iwhite text-reg font-helvetica ">Logout</span>
+					</a>
+				  </div>
+				  {% else %}
 				  <div class="hover:text-ired">
 					<a href="{% url 'login'%}" class="inline-block text-sm px-12 py-2 leading-none border rounded text-iwhite bg-ired border-ired mt-4 lg:mt-0 ">
 						<span class="text-iwhite text-reg font-helvetica ">Login</span>
 					</a>
 				  </div>
+				  {% endif %}
 				</div>
 			  </nav>
 		</header>

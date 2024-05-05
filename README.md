@@ -35,3 +35,4 @@ projct/
         ~/templates     #html
     .manage.py
 ```
+ALL PAGES ARE SETTED
