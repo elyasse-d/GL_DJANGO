@@ -76,6 +76,9 @@ module.exports = {
             spacing:{
                 'xf':'302px',
             },
+            backgroundImage:{
+                'login':"url('static/appbib/books.png')",
+            },
           },
     },
     plugins: [
@@ -84,7 +87,7 @@ module.exports = {
          * for forms. If you don't like it or have own styling for forms,
          * comment the line below to disable '@tailwindcss/forms'.
          */
-        require('@tailwindcss/forms'),
+        // require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
     ],

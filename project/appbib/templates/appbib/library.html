@@ -1,0 +1,18 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+{% block title %} Library- Bib{% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto h-screen w-screen flex flex-col">
+    <div class="flex flex-row  bg-iiblack">
+            <input type="text" placeholder="Search"
+                class=" text-iwhite  px-4 py-2 bg-iiblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
+                <button class=" w-60 text-sm py-2 leading-none border rounded text-iwhite bg-none self-center">
+                    <span class="text-iwhite text-reg font-helvetica ">search</span>
+                </button>
+    </div>
+    <div class="flex-1 bg-iiblack">s</div>
+
+</div>
+
+{% endblock %}
