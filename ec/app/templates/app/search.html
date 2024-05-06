@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Search Result{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5" style="color:#000000;">
+    <div class="row">
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a class="btn btn-primary" style="color: :#000000;">Résultat recherche</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                {% for prod in product %}
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4" >
+                    <a href="{% url 'product-detail' prod.id %}" class="btn">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img src="{{ prod.product_image.url }}" class="card-img-top img-fluid aspect-ratio" style="height: 200px; object-fit: cover;color:#000000;">
+                            <!-- Product details-->
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold" style="color:#000000;">{{ prod.title }}</h5>
+                                <div class="card-text">
+                                    <span class="text-muted text-decoration-line-through" style="color:#000000;">{{ prod.selling_price }} MAD</span><br>
+                                    <strong class="ms-2 text-danger" style="color:#000000;">{{ prod.discounted_price }} MAD</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% empty %}
+                <div class="col">
+                    <p class="text-muted" style="background-color:#000000;">No products found.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

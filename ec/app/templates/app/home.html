@@ -1,0 +1,281 @@
+{% extends 'app/base.html'%}
+{% load static %}
+{% block title %}Home {% endblock title %}
+
+{% block banner-slider %}    
+<div style="background-color:#000000; height-right: 550px">                                                                        <!-- height:500px ; overflow: hidden; -->
+    <div id="carouselExampleAutoplaying" class="carousel slide mx-auto " data-bs-interval="2000" data-bs-ride="carousel" style="width: 90%;  top: 20px; ">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="{% url 'category' 'GM' %}"><img src="{% static 'app/images/Informatique/info1.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover; max-width: 200px; max-height: 200px;"></a>
+        </div>
+        <div class="carousel-item  ">
+            <a href="{% url 'category' 'SH' %}"><img src="{% static 'app/images/Science/sc3.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover; max-width: 200px; max-height: 200px;" ></a>
+        </div>
+        <div class="carousel-item "> 
+            <a  href="{% url 'category' 'TP' %}"><img src="{% static 'app/images/Economie/eco2.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;  max-width: 200px; max-height: 200px;"></a>
+        </div>
+        <div class="carousel-item ">
+            <a href="{% url 'category' 'TV' %}"><img src="{% static 'app/images/Entreprise/ent3.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover; max-width: 200px; max-height: 200px;"></a>
+        </div>
+        <div class="carousel-item  ">
+            <a href="{% url 'category' 'LP' %}"><img src="{% static 'app/images/Santé/sant4.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;  max-width: 200px; max-height: 200px;" ></a>
+        </div>
+        <div class="carousel-item "> 
+            <a  href="{% url 'category' 'TB' %}"><img src="{% static 'app/images/Enfant/enf5.png' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;  max-width: 200px; max-height: 200px;"></a>
+        </div>
+        <div class="carousel-item ">
+            <a href="{% url 'category' 'AD' %}"><img src="{% static 'app/images/Art/art4.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;  max-width: 200px; max-height: 200px;"></a>
+        </div>
+        <div class="carousel-item ">
+            <a href="{% url 'category' 'FC' %}"><img src="{% static 'app/images/Alimentation/alim4.jfif' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;"></a>
+        </div>
+        <div class="carousel-item "> 
+            <a  href="{% url 'category' 'SP' %}"><img src="{% static 'app/images/Sport/sport4.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;"></a>
+        </div>
+        <div class="carousel-item ">
+            <a href="{% url 'category' 'MU' %}"><img src="{% static 'app/images/Musique/mus6.jpg' %}" class="d-block w-100 h-100" alt="banner image" style="object-fit: cover;"></a>
+        </div>
+        
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div> 
+    {% endblock banner-slider %}
+
+
+    {% block main-content %}
+    <br><br>
+    <div class="container">
+    <h1 class="heading00" > Notre Catégories </h1>
+    </div>
+    <section class="py-0" id="products" style="background-color:#000000;" >
+            <div class="container px-4 px-lg-5 mt-5"  >
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div class="col mb-5" >
+                        <div class="card h-100" >
+                            <!-- Product image -->
+                            <div class="h-50" >
+                            <a href="{% url 'category' 'AD' %}"><img class="card-img-top h-100" src="{% static 'app/images/Art/art.jpg' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder" >Art</h5>
+                                    
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center" ><a  class="btn btn-outline-dark mt-auto  " href="{% url 'category' 'AD' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            
+                            <!-- Product image-->
+                            <div class="h-50">
+                            <a href="{% url 'category' 'LP' %}"><img class="card-img-top h-100" src="{% static 'app/images/Santé/sant.jpg' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Santé</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'TP' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="h-50">
+                            <!-- Product image-->
+                            <a href="{% url 'category' 'GM' %}"><img class="card-img-top h-100" src="{% static 'app/images/Informatique/info.png' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Informatique</h5>
+                                
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'LP' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <div class="h-50">
+                            <a href="{% url 'category' 'TP' %}"><img class="card-img-top h-100" src="{% static 'app/images/Economie/eco.png' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center  product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Economie</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'TV' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="h-50">
+                            <!-- Product image-->
+                            <a href="{% url 'category' 'TV' %}"><img class="card-img-top h-100" src="{% static 'app/images/Entreprise/ent.jpg' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Entreprise</h5>
+                                
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'SH' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="h-50">
+                            <!-- Product image-->
+                            <a  href="{% url 'category' 'TB' %}"><img class="card-img-top h-100" src="{% static 'app/images/Enfant/enf.png' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Enfant</h5>
+                                
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'TB' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="h-50">
+                            <!-- Product image-->
+                            <a href="{% url 'category' 'SH' %}"><img class="card-img-top h-100" src="{% static 'app/images/Science/sc.png' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Science</h5>
+                                
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'GM' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <div class="h-50">
+                                <a href="{% url 'category' 'FC' %}"><img class="card-img-top h-100" src="{% static 'app/images/Alimentation/alim.png' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Animentation</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'SP' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <div class="h-50">
+                                <a href="{% url 'category' 'SP' %}"><img class="card-img-top h-100" src="{% static 'app/images/Sport/sp.jpg' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Sport</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'SP' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                   <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <div class="h-50">
+                                <a href="{% url 'category' 'MU' %}"><img class="card-img-top h-100" src="{% static 'app/images/Musique/muss.jpg' %}" alt="..." /></a>
+                            </div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center product-name-wrapper mb-3">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">Musique</h5>
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    <a class="btn btn-outline-dark mt-auto" href="{% url 'category' 'Mus' %}">Voir la catégorie</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+    </section>
+    
+{% endblock main-content %}
+ 
