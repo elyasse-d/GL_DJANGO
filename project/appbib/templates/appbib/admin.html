@@ -1,0 +1,36 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+
+{% block title %} Validate Returned Books {% endblock %}
+
+{% block main-content %}
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-semibold text-center mb-8">Validate Returned Books</h1>
+    <div class="flex justify-center">
+        <div class="w-full lg:w-1/2 bg-white shadow-md rounded-lg p-8">
+            <h2 class="text-xl font-semibold mb-4">List of Returned Books</h2>
+            <ul>
+                {% for book in returned_books %}
+                <li class="flex items-center justify-between border-b py-2">
+                    <div>
+                        <span class="font-semibold">{{ book.title }}</span>
+                        <span class="text-gray-500">({{ book.author }})</span>
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-500">{{ book.return_date }}</span>
+                        <button class="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Validate</button>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% if returned_books %}
+            <div class="mt-4">
+                <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Validate All</button>
+            </div>
+            {% else %}
+            <p class="text-gray-500 text-center mt-4">No books to validate.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

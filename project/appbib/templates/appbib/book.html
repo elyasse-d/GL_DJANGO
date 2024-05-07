@@ -1,47 +1,61 @@
 {% extends 'appbib/base.html' %}
 {% load static %}
-{% block title %}book{% endblock %}
+{% block title %}Book{% endblock %}
 
 {% block main-content %}
 <div class="container mx-auto flex flex-col gap-10">
+    <div class="flex flex-col gap-5">
+        {% if message %}
+        <div class="w-full h-fit  p-5  bg-ired rounded-xl "><span class="text-iiwhite text-reg font-helvetica">{{ message }}</span></div>
+        {% endif %}
+    </div>
+    <div class="container mx-auto bg-iiblack flex rounded-2xl border-iiblack relative">
 
-    <div class="container mx-auto bg-iblack  flex">
-        <div class="w-full h-2/6 bg-iiblack flex rounded-2xl border-iiblack">
-            <div class="w-1/4 h-full p-2 flex items-center justify-center mb-10 ">
-                <img src="{% static 'appbib/moby.jpg' %}" alt="" class="rounded-xl border-2 border-ired h-img">
+        <div class="w-1/4 h-full p-2 flex items-center justify-center mb-10">
+            <img src="{{ book.photo.url }}" alt="{{ book.title }}" class="rounded-xl border-2 border-ired h-img">
         </div>
-        <div class="w-3/4 h-full p-2 flex flex-col gap-4">
-            <div class="flex flex-row">
-                <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+        <div class="w-3/4 h-full p-2 flex flex-col gap-5">
+            <div class="flex flex-row gap-x-10">
+                <h1 class="text-iwhite text-reg font-helvetica-black w-40">Title:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.title }}</h1>
             </div>
-            <div class="flex flex-row">
-                <h1 class="text-iwhite text-reg font-helvetica-black">Author:</h1>
-                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <div class="flex flex-row gap-x-10">
+                <h1 class="text-iwhite text-reg font-helvetica-black w-40">Author:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.author }}</h1>
             </div>
-            <div class="flex flex-row">
-                <h1 class="text-iwhite text-reg font-helvetica-black">Realese Date:</h1>
-                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <div class="flex flex-row gap-x-10">
+                <h1 class="text-iwhite text-reg font-helvetica-black w-40">Release Date:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.date_edition }}</h1>
             </div>
-            <div class="flex flex-row">
-                <h1 class="text-iwhite text-reg font-helvetica-black">Language:</h1>
-                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <div class="flex flex-row gap-x-10">
+                <h1 class="text-iwhite text-reg font-helvetica-black w-40">Language:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.language }}</h1>
             </div>
-            <div class="flex flex-row">
-                <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
-                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <div class="flex flex-row gap-x-10">
+                <h1 class="text-iwhite text-reg font-helvetica-black w-40">Genre:</h1>
+                <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.genre }}</h1>
             </div>
             
         </div>
-        
+        <div class="absolute bottom-0 right-0 p-10">
+            {% if book.is_available and not has_rented %}
+            <a href="{% url 'rent' book.id %}" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
+                Rental
+            </a>
+            {% else %}
+            <span class="text-iiwhite text-reg font-helvetica"> {{ message }} </span>
+            {% endif %}
+            <a href="{% url 'library' %}" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md hover:bg-red-900">
+                Back to Library
+            </a>
+        </div>
     </div>
-    
-</div>
-<div class="w-full h-fit bg-iiblack">
-    <h1 class="text-reg font-helvetica-black p-5">Content</h1>
-    <p class="text-reg font-helvetica-ultra-light p-10">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit
-    </p>
-</div>
+    <div class="w-full h-fit bg-iiblack">
+        <h1 class="text-reg font-helvetica-black p-5">Content</h1>
+        <p class="text-reg font-helvetica-ultra-light p-10">
+            {{ book.summary }}
+        </p>
+    </div>
+
 </div>
 {% endblock %}

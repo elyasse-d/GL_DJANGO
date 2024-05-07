@@ -147,3 +147,7 @@ INTERNAL_IPS = [
 NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
 
 
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
+
+AUTH_USER_MODEL = 'appbib.CustomUser'
+
