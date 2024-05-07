@@ -70,6 +70,7 @@ module.exports = {
                 iwhite:'#FEFFFE',
                 shadow:'#9E9898',
                 ishadow:'#585757',
+                iborder:'rgba(158, 152, 152, 0.11)',
             },
             letterSpacing: {
                 'title':'0.08em',

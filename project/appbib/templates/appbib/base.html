@@ -9,12 +9,14 @@
 		{% tailwind_css %}
 	</head>
 
-	<body class="bg-iblack text-iwhite font-serif leading-normal tracking-normal">
-		<header>
+	<body class="bg-iblack text-iwhite font-serif leading-normal tracking-normal gap-4">
+		<header class="gap-5 mb-5">
 			
-			<nav class="flex items-center justify-between flex-wrap bg-iiblack p-1 px-4 shadow-nav">
+			<nav class="flex items-center justify-between flex-wrap bg-iiblack p-1 px-4 border-b-8 border-b-iborder">
 				<div class="flex items-center flex-no-shrink mr-6">
-				  <span class="font-preosper text-logo tracking-tight text-ired">libra</span>
+					<a href="{% url 'home' %}">
+						<span class="font-preosper text-logo tracking-tight text-ired hover:text-iiwhite">libra</span>
+					</a>
 				</div>
 				<div class="block lg:hidden">
 				  <button class="flex items-center px-3 py-2 border rounded text-iwhite border-teal-light hover:text-ired hover:border-ired">
@@ -29,7 +31,7 @@
 					<a href="{% url 'library'%}" class="block mt-4 lg:inline-block lg:mt-0  text-iwhite hover:text-ired mr-4 font-helvetica text-reg">
 						Library
 					</a>
-					<a href="{% url 'home'%}" class="block mt-4 lg:inline-block lg:mt-0  text-iwhite hover:text-ired mr-4 font-helvetica text-reg">
+					<a href="{% url 'profil'%}" class="block mt-4 lg:inline-block lg:mt-0  text-iwhite hover:text-ired mr-4 font-helvetica text-reg">
 						Accounts
 					</a>
 				  </div>
@@ -49,10 +51,11 @@
 				</div>
 			  </nav>
 		</header>
+
 			{% block main-content %}
 			{% endblock %}
 		</div>
-		<footer >
+		<footer class="border-t-8 border-t-iborder mt-5">
 			<div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 mt-16">
 			  <div class="sm:flex sm:items-center sm:justify-between">
 				<div class="flex justify-center text-teal-600 sm:justify-start">
