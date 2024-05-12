@@ -2,9 +2,10 @@
 First Pull the Project
 
 
-Second , Use this command
+Second , Install requirements for Python and NPM
 ```
 pip install -r requirement.txt
+npm install postcss-simple-vars autoprefixer tailwindcss postcss-import @tailwindcss/typography @tailwindcss/aspect-ratio
 ```
 Install NPM
 
