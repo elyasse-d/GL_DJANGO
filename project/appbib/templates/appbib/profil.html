@@ -1,67 +1,74 @@
 {% extends 'appbib/base.html' %}
 {% load static %}
-{% block title %}Profil{% endblock %}
+
+{% block title %} Profile {% endblock %}
 
 {% block main-content %}
 <div class="container mx-auto flex flex-col gap-5">
-    <div class="w-full h-2/5 bg-iiblack flex items-center justify-center rounded-2xl ">
-
-        <img src="{% static 'appbib/girlb.jpg' %}" alt="" class="rounded-full border-ired border-2 object-cover h-60 w-60 mb-10">
+    <div class="w-full h-2/5 bg-iiblack flex items-center justify-center rounded-2xl relative">
+        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="rounded-full border-ired border-2 object-cover h-60 w-60 mb-10">
+        <div class="absolute bottom-0 right-0 p-10">
+            <a href="{% url 'edit_profile' %}" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
+                Edit Profile
+            </a>
+            
+        </div>
     </div>
     <div class="flex w-full">
        <div class="w-1/4 h-fit bg-iiblack flex flex-col rounded-2xl p-10 gap-4">
         <div class="flex flex-row">
-            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-black">First Name:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ profile.user.first_name }}</h1>
         </div>
         <div class="flex flex-row">
-            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-black">Last Name:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ profile.user.last_name }}</h1>
         </div>
         <div class="flex flex-row">
-            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-black">Email:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ profile.user.email }}</h1>
         </div>
         <div class="flex flex-row">
-            <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-black">Phone:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ profile.user.phone_number }}</h1>
         </div>
-
+        <div class="flex flex-row">
+            <h1 class="text-iwhite text-reg font-helvetica-black">Birthdate:</h1>
+            <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ profile.birthdate }}</h1>
+        </div>
        </div>
        <div class="w-3/4 h-fit bg-iiblack gap-4 rounded-2xl ml-5 p-5">
-        <div class=" flex justify-center items-center h-full">
-
+        <div class="flex justify-center items-center h-full">
             <div class="max-w-7xl mx-auto py-8 w-full h-full">
-                <div class="overflow-x-auto ">
-                    <table class="w-full  shadow-md rounded-lg divide-y divide-ishadow ">
-                        <thead class="">
+                <div class="overflow-x-auto">
+                    <table class="w-full shadow-md rounded-lg divide-y divide-ishadow">
+                        <thead>
                             <tr>
                                 <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Book</th>
                                 <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Title</th>
-                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Date</th>
-                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Return date</th>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Date Borrowed</th>
+                                <th class="px-6 py-3 text-left text-reg font-medium text-iiwhite uppercase tracking-wider">Return Date</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
-                            
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap"><img src="{{ image.url }}" alt="MRI Image" class="w-5 h-5 object-cover rounded "style="width:6rem;height:6rem;"></td>
-                                    <td class="px-6 py-4 whitespace-nowrap"> book.title </td>
-                                    <td class="px-6 py-4 whitespace-nowrap"> book.date </td>
-                                    <td class="px-6 py-4 whitespace-nowrap"> scan.return </td>
-                                </tr>
-                                
+                            {% for book in rented_books %}
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <img src="{{ book.book.photo.url }}" alt="{{ book.book.title }}" class="w-20 h-20 object-cover rounded">
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-reg font-helvetica">{{ book.book.title }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-reg font-helvetic">{{ book.date_borrowed }}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-reg font-helvetic">{{ book.date_returned }}</td>
+                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
             </div>
-            
         </div>
        </div>
-
     </div>
-
-
+    
 
 </div>
 {% endblock %}

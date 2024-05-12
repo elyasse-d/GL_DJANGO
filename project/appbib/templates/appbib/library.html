@@ -1,59 +1,78 @@
 {% extends 'appbib/base.html' %}
 {% load static %}
-{% block title %} Library- Bib{% endblock %}
+{% block title %} Library - Bib {% endblock %}
 
 {% block main-content %}
 <div class="container mx-auto h-full w-screen flex flex-col ">
-    <div class="flex flex-row  bg-iiblack justify-end gap-4">
-            <input type="text" placeholder="Search"
-                class=" min-w-80 text-iwhite  px-4 py-2 bg-iiblack  border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light " />
-                <button class=" w-60 text-sm py-2 leading-none border rounded text-iwhite bg-none self-center">
-                    <span class="text-iwhite text-reg font-helvetica ">search</span>
-                </button>
+    <div class="flex flex-row bg-iiblack justify-end gap-4">
+        <form action="{% url 'search_results' %}" method="GET" class="flex gap-4">
+            <input type="text" name="q" placeholder="Search" class="min-w-80 text-iwhite px-4 py-2 bg-iiblack border-b-2 border-b-gray-500 focus:outline-none font-helvetica-ultra-light">
+            <button type="submit" class="text-sm py-2 leading-none border rounded text-iwhite bg-none self-center">
+                <span class="text-iwhite text-reg font-helvetica ">Search</span>
+            </button>
+        </form>
     </div>
-    
-    <div class="flex">
-        
-        <div class="w-1/4 h-screen p-2">
-          <div class="mb-4 border rounded-xl border-ishadow p-5">
-                <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Genere:</h1>
-            <div class="border border-ishadow rounded-lg flex py-2 px-1  bg-iiblack" >
-                <span class="text-reg font-helvetica-ultra-light flex-1">drama</span>
-                <input type="checkbox" id="genere" class="size-7 flex-1" />
-            </div>
-        </div>
+<div class="flex flex-row w-full">
 
+  <div class="w-1/5 h-screen py-2 px-4 gap-40">
+    <form method="GET" action="{% url 'library' %}" class="">
         <div class="mb-4 border rounded-xl border-ishadow p-5">
-            <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Language:</h1>
-            <ul class="space-y-1 border rounded-xl border-ishadow p-4">
-                <li>
-                  <label for="language" class="inline-flex items-center gap-2">
-                    <input type="checkbox" id="kangauge" class="size-7 rounded border-ishadow" />
-        
-                    <span class="text-reg font-helvetica-ultra-light"> Arabic </span>
-                  </label>
-                </li>
-        </div>
-        
-    </div>
-       
-        <div class="w-3/4 p-4 grid grid-cols-4 gap-4">
-            <!-- Python Script to generate the number of cards -->
-          <div class=" bg-iiblack rounded-xl p-5 mb-4 border-2 h-hs w-w border-iiblack hover:border-ired relative  flex flex-col ">
-                <img src="{% static 'appbib/moby.jpg' %}" alt="" class="object-cover h-img rounded-lg border-none  ">
-                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
-                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
-                <h1 class="font-helvetica-ultra-light text-center">HH</h1>
-                <div class="justify-end flex gap-2 place-items-end ">
-                    <!-- Python loop for generes -->
-                    <div class="border border-1 rounded-lg border-ishadow w-10 h-10 flex items-center justify-center "> <span class="place-self-center ">H</span></div>
-                </div>
+            <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Genre:</h1>
+            {% for genre in genres %}
+            <div class="border border-ishadow rounded-lg flex py-2 px-1 bg-iiblack">
+              <label>
+                <input type="checkbox" name="genre" value="{{ genre }}" {% if genre in selected_genres %}checked{% endif %}>
+                <span class="text-reg font-helvetica-ultra-light">{{ genre }}</span>
+                </label>
             </div>
-            
-        
-        </div>
-        
-    </div>
-    
+            {% endfor %}
+          </div>
+          
+        <div class="mb-4 border rounded-xl border-ishadow p-5">
+          <h1 class="text-light font-helvetica-ultra-light text-iiwhite">Language:</h1>
+          {% for language in languages %}
+            <div class="border border-ishadow rounded-lg flex py-2 px-1 bg-iiblack">
+                <label>
+                    <input type="checkbox" name="language" value="{{ language }}" {% if language in selected_languages %}checked{% endif %}>
+                    <span class="text-reg font-helvetica-ultra-light">{{ language }}</span>
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="flex justify-center">
 
-{% endblock %}
+              <button type="submit" class="bg-ired text-sm py-2 leading-none border rounded text-iwhite bg-none self-center">
+                <span class="text-iwhite text-reg font-helvetica ">Apply Filters</span>
+              </button>
+            </div>
+      </form>
+    <form method="GET" action="{% url 'library' %}" class="flex justify-center">
+        <button type="submit" class="bg-ired text-sm py-2 leading-none border rounded text-iwhite bg-none self-center mt-4">
+            <span class="text-iwhite text-reg font-helvetica ">Clear Filters</span>
+        </button>
+    </form>
+</div>
+
+        <div class="w-4/5 p-4 grid grid-cols-4  gap-40">
+          <!-- Python Script to generate the number of cards -->
+          {% for book in books %}
+          <a href="{% url 'book' book.id %}" class="w-full">
+            <div class="bg-iiblack rounded-xl p-5 border-2 h-hs w-w border-iiblack hover:border-ired relative flex flex-col">
+              <img src="{{ book.photo.url }}" alt="{{ book.title }}" class="object-cover h-img rounded-lg border-none">
+              <h1 class="font-helvetica-ultra-light text-center">{{ book.title }}</h1>
+                  <h1 class="font-helvetica-ultra-light text-center">{{ book.author }}</h1>
+                  <h1 class="font-helvetica-ultra-light text-center">{{ book.date_edition }}</h1>
+                  <div class="justify-end flex gap-2 place-items-end">
+                      <!-- Python loop for genres -->
+                      <div class="border border-1 rounded-lg border-ishadow w-10 h-10 flex items-center justify-center"> <span class="place-self-center">{{ book.language }}</span></div>
+                      <div class="border border-1 rounded-lg border-ired w-10 h-10 flex items-center justify-center"> <span class="place-self-center">{{ book.quantity}}</span></div>
+                  </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

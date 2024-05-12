@@ -1,0 +1,43 @@
+{% extends 'appbib/base.html' %}
+{% load static %}
+
+{% block title %} Validate Returned Books {% endblock %}
+
+{% block main-content %}
+
+<div class="container mx-auto py-8">
+    <h1 class="text-3xl font-semibold text-center mb-8">Validate Returned Books</h1>
+    <div class="overflow-x-auto">
+        <table class="w-full bg-iiblack shadow-md rounded-lg divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Book</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">User</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Date Returned</th>
+                    <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Validation</th>
+                </tr>
+            </thead>
+            <tbody class="bg-iiblack divide-y divide-gray-200">
+                {% for returned_book in returned_books %}
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ returned_book.book }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ returned_book.user }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ returned_book.date_returned }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        {% if not returned_book.validated %}
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="returned_book_id" value="{{ returned_book.id }}">
+                            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Validate</button>
+                        </form>
+                        {% else %}
+                        <span class="text-green-500 font-semibold">Validated</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

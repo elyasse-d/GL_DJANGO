@@ -5,58 +5,70 @@
 {% block main-content %}
 <div class="container mx-auto flex flex-col gap-10">
 
-    <div class="container mx-auto bg-iblack  flex relative justify-around ">
-        <div class="w-full h-2/6 bg-iiblack flex rounded-2xl border-iiblack">
-            <div class="w-1/4 h-full p-2 flex items-center justify-center mb-10 mt-2  ">
-                <img src="{% static 'appbib/moby.jpg' %}" alt="" class="rounded-xl border-2 border-ired h-img">
-        </div>
-        <div class="w-3/4 h-full p-4 flex flex-row gap-4 ">
-            <div class="flex-1 gap-4">
-                <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Title:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+    <div class="container mx-auto bg-iblack relative justify-around ">
+        <div class="flex flex-col gap-5">
+            {% if message %}
+            <div class="w-full h-fit  p-5  bg-ired rounded-xl "><span class="text-iiwhite text-reg font-helvetica">{{ message }}</span></div>
+            {% endif %}
+            <div class="w-full h-2/6 bg-iiblack flex rounded-2xl border-iiblack">
+                <div class="w-1/4 h-full p-2 flex items-center justify-center mb-10 mt-2  ">
+                    <img src="{{ book.photo.url }}" alt="" class="rounded-xl border-2 border-ired h-img">
+                </div>
+                <div class="w-3/4 h-full p-4 flex flex-row gap-4 ">
+                    <div class="flex-1 gap-4">
+                        <div class="flex flex-row">
+                            <h1 class="text-iwhite text-reg font-helvetica-black w-40">Title:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.title }}</h1>
                 </div>
                 <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Author:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Author:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{book.author}}</h1>
                 </div>
                 <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Realese Date:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Realese Date:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{book.date_edition}}</h1>
                 </div>
                 <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Language:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Language:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{book.language}}</h1>
                 </div>
                 <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
-                </div>
-            </div>
-            <div class="flex-1 gap-4">
-                <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
-                </div>
-                <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
-                </div>
-                <div class="flex flex-row">
-                    <h1 class="text-iwhite text-reg font-helvetica-black">Genere:</h1>
-                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">Titre</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Genere:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{ book.genre }}</h1>
                 </div>
             </div>
-        </div>
-
-        <div class="absolute bottom-0 right-0 p-10">
-            <a href="" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
-                Rent
-            </a>
+            <div class="flex-1 gap-4">
+                <div class="flex flex-row">
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">User:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{user}}</h1>
+                </div>
+                <div class="flex flex-row">
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Rental Date:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{rental_date}}</h1>
+                </div>
+                <div class="flex flex-row">
+                    <h1 class="text-iwhite text-reg font-helvetica-black w-40">Return Date:</h1>
+                    <h1 class="text-iwhite text-reg font-helvetica-ultra-light">{{return_date}}</h1>
+                </div>
+            </div>
+            <div class="absolute bottom-0 right-0 p-10">
+                    {% if book.is_available and not has_rented %}
+                    <a href="{% url 'confirm_rent' book.id %}" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md mr-4 hover:bg-red-900">
+                        Confirm Rental
+                    </a>
+                    {% else %}
+                    <span class="text-iiwhite text-reg font-helvetica"> {{ message }} </span>
+                    {% endif %}
+                    <a href="{% url 'library' %}" class="uppercase py-2 px-6 rounded-lg bg-ired border-2 border-transparent text-iwhite text-md hover:bg-red-900">
+                        Back to Library
+                    </a>
+                </div>
         </div>
     </div>
+</div>
     
 </div>
 
 </div>
+
 {% endblock %}
