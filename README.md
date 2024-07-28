@@ -1,11 +1,19 @@
-# GL_DJANGO
-First Pull the Project
+# Library Management Project for GL (Software Engineering)
+<div align="center">
 
+![Main](./assets/libra.png)
 
-Second , Install requirements for Python and NPM
+</div>
+
+![Main](./assets/main.png)
+
+![Prev](./assets/prev.png)
+
+# Installation
+this project requires Python3 , First
+install Python Requirements
 ```
 pip install -r requirement.txt
-npm install postcss-simple-vars autoprefixer tailwindcss postcss-import @tailwindcss/typography @tailwindcss/aspect-ratio
 ```
 Install NPM
 
@@ -19,7 +27,7 @@ run the Dev Server
 python manage.py tailwind start 
 python manage.py runserver
 ```
->To add image to your html , use {% load static %} and {% static 'biblio/ficher.png' %} 
+
 
 The project Map
 ```
@@ -36,4 +44,4 @@ projct/
         ~/templates     #html
     .manage.py
 ```
-ALL PAGES ARE SETTED
+
