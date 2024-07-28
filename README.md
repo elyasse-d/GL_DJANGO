@@ -1,13 +1,13 @@
 # Library Management Project for GL (Software Engineering)
 <div align="center">
 
-![Main](./assets/libra.png)
+![Main](./libra.png)
 
 </div>
 
-![Main](./assets/main.png)
+![Main](./main.png)
 
-![Prev](./assets/prev.png)
+![Prev](./prev.png)
 
 # Installation
 this project requires Python3 , First
